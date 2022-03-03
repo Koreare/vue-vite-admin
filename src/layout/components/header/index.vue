@@ -13,7 +13,7 @@
     <div class="right-box">
       <div class="function-list">
         <div class="function-list-item hidden-sm-and-down">
-          <!--          <chang-color />-->
+          <chang-color />
         </div>
       </div>
       <div class="user-info">

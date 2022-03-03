@@ -3,7 +3,7 @@
     title="系统设置"
     @click="drawerChange(true)"
   >
-    <el-icons name="Setting" />
+<!--    <el-icons name="Setting" />-->
   </div>
   <el-drawer
     v-model="drawer"
