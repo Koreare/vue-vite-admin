@@ -10,10 +10,12 @@ import router from './router'
 import store from './store'
 
 import ElIcons from './components/icons/index.vue'
+import permission from './components/permission/index'
 
 const app = createApp(App)
 app.use(ElementPlus)
 app.use(store)
 app.use(router)
+app.use(permission)
 app.component('el-icons', ElIcons)
 app.mount('#app')
