@@ -19,9 +19,9 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.3",
+    "@vitejs/plugin-vue": "^2.2.4",
     "sass": "^1.43.4",
-    "vite": "^2.6.4",
+    "vite": "^2.8.6",
     "standard": "^16.0.3",
     "vue-eslint-parser": "^7.10.0",
     "eslint-plugin-vue": "^7.15.1",
