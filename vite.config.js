@@ -1,13 +1,21 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
+import compressPlugin from 'vite-plugin-compression'
 function pathResolve (dir) {
   return resolve(__dirname, '.', dir)
 }
 
 export default defineConfig({
   base: '',
-  plugins: [vue()],
+  plugins:[
+    vue(),
+    compressPlugin({
+      ext: '.gz',//gz br
+      algorithm: 'gzip', //brotliCompress gzip
+      deleteOriginFile: false
+    })
+  ],
   resolve: {
     alias: {
       '@': pathResolve('src')
