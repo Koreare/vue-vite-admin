@@ -14,27 +14,21 @@
             maxlength="50"
         >
           <template #prepend>
-            <i class="sfont system-xingmingyonghumingnicheng" />
+            <el-icons name="Avatar" />
           </template>
         </el-input>
         <el-input
             ref="password"
             v-model="form.password"
             size="large"
+            show-password
             :type="passwordType"
             placeholder="密码"
             name="password"
             maxlength="50"
         >
           <template #prepend>
-            <i class="sfont system-mima" />
-          </template>
-          <template #append>
-            <i
-                class="sfont password-icon"
-                :class="passwordType ? 'system-yanjing-guan': 'system-yanjing'"
-                @click="passwordTypeChange"
-            />
+            <el-icons name="lock" />
           </template>
         </el-input>
         <el-button
@@ -91,26 +85,25 @@ export default defineComponent({
       })
     }
     const submit = () => {
-      checkForm()
-          .then(() => {
-            loading.value = true
-            const params = {
-              username: form.name,
-              pwd: md5(form.password)
-            }
-            store.dispatch('user/login', params)
-                .then(() => {
-                  ElMessage.success({
-                    message: '登录成功',
-                    type: 'success',
-                    showClose: true,
-                    duration: 1000
-                  })
-                  router.push(route.query.redirect || '/')
-                }).finally(() => {
-              loading.value = false
-            })
+      checkForm().then(() => {
+        loading.value = true
+        const params = {
+          username: form.name,
+          password: md5(form.password)
+        }
+        store.dispatch('user/login', params).then(() => {
+          ElMessage.success({
+            message: '登录成功',
+            type: 'success',
+            showClose: true,
+            duration: 1000
           })
+          router.push(route.query.redirect || '/')
+        }).finally(() => {
+          loading.value = false
+        })
+      })
+
     }
     return {
       systemTitle,

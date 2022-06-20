@@ -1,5 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import store from '../store'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import asyncRouter from './async-router'
 import constantRouter from './constant-router'
@@ -31,15 +30,15 @@ function distributeRouter (routerList, powerRoles) {
 // console.log(store.state.user.info)
 const powerRoles = ['F-0100', 'F-0101', 'F-0200', 'F-0201']
 
-const route = distributeRouter(asyncRoutes, powerRoles)
+// const route = distributeRouter(asyncRoutes, powerRoles)
 
 const routes = [
-  ...route,
-  ...constantRouter
+  ...constantRouter,
+  ...(asyncRoutes)
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
