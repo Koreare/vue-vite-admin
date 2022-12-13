@@ -1,44 +1,29 @@
 <template>
   <div
-      v-loading="loading"
       class="container"
   >
     <div class="box">
       <h1>{{ systemTitle }}</h1>
       <el-form class="form">
-        <el-input
-            v-model="form.name"
-            size="large"
-            placeholder="用户名"
-            type="text"
-            maxlength="50"
-        >
-          <template #prepend>
-            <el-icons name="Avatar" />
-          </template>
-        </el-input>
-        <el-input
-            ref="password"
-            v-model="form.password"
-            size="large"
-            show-password
-            :type="passwordType"
-            placeholder="密码"
-            name="password"
-            maxlength="50"
-        >
-          <template #prepend>
-            <el-icons name="lock" />
-          </template>
-        </el-input>
-        <el-button
-            type="primary"
-            style="width: 100%;"
-            size="medium"
-            @click="submit"
-        >
-          登录
-        </el-button>
+        <el-form-item>
+          <el-input v-model="form.name" size="large" placeholder="用户名" type="text" maxlength="50">
+            <template #prepend>
+              <el-icons name="Avatar" />
+            </template>
+          </el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input ref="password" size="large" v-model="form.password" show-password :type="passwordType" placeholder="密码" name="password" maxlength="50" @keyup.enter="submit">
+            <template #prepend>
+              <el-icons name="lock" />
+            </template>
+          </el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="large" style="width: 100%;" :loading="loading" @click="submit">
+            登录
+          </el-button>
+        </el-form-item>
       </el-form>
     </div>
   </div>
